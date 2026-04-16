@@ -14,6 +14,12 @@ all: $(USER_TARGETS) module
 ci: WORKLOAD_LDFLAGS =
 ci: $(USER_TARGETS)
 
+ci:
+	gcc -Wall -Wextra -c engine.c -o /dev/null
+	gcc -Wall -Wextra -c memory_hog.c -o /dev/null
+	gcc -Wall -Wextra -c cpu_hog.c -o /dev/null
+	gcc -Wall -Wextra -c io_pulse.c -o /dev/null
+
 module: monitor.ko
 
 engine: engine.c monitor_ioctl.h
