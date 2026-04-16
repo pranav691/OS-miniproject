@@ -179,39 +179,48 @@ top -p $(pgrep -d',' cpu_hog io_pulse)
 Each screenshot is annotated with a brief caption.
 
 ### 1. Multi‑container supervision 
+<img width="1373" height="105" alt="1 and 2" src="https://github.com/user-attachments/assets/71f5ca1b-4ba9-414b-8cff-f225e7dc3fc3" />
+
 
 *Caption: `sudo ./engine ps` shows containers `alpha` and `beta` both in `running` state under the same supervisor.*
 
 ### 2. Metadata tracking 
+<img width="1373" height="105" alt="1 and 2" src="https://github.com/user-attachments/assets/abbee1e4-02bb-467b-9293-a7518d933a27" />
 
 
 *Caption: `ps` command displays container ID, PID, state, soft limit (MiB), and hard limit (MiB).*
 
 ### 3. Bounded‑buffer logging
+<img width="1600" height="204" alt="3" src="https://github.com/user-attachments/assets/9bb8818c-1c6d-4370-8eee-805b59a52198" />
 
 
 *Caption: `cat ~/OS/boilerplate/logs/logger.log` shows the message “Hello from container” written through the logging pipeline.*
 
 ### 4. CLI and IPC
+<img width="1272" height="222" alt="4" src="https://github.com/user-attachments/assets/6bc8cd4f-54bf-4632-9163-fca84924b99b" />
 
 
 *Caption: Issuing `engine start demo ...` returns “Container demo started with PID 7456”, and `engine ps` shows the container, proving the UNIX socket communication.*
 
 ### 5. Soft‑limit warning
+<img width="1341" height="186" alt="5" src="https://github.com/user-attachments/assets/1ffc0ced-b0c0-4b7e-8bf0-f77930cc1d6b" />
 
 *Caption: `dmesg | grep "SOFT LIMIT"` shows a warning when container `mentest` exceeded its 20 MiB soft limit.*
 
 ### 6. Hard‑limit enforcement
+<img width="1600" height="246" alt="6" src="https://github.com/user-attachments/assets/477176b1-4c22-4394-9076-021b2df6fb06" />
 
   
 *Caption: `dmesg` shows a hard limit kill (RSS > 40 MiB), and `engine ps` marks the container state as `killed`.*
 
 ### 7. Scheduling experiment
+<img width="920" height="297" alt="7" src="https://github.com/user-attachments/assets/6ecd0ecc-f258-4c24-af62-904644e9572d" />
 
  
 *Caption: `cpu_low` (nice 19) and `io_high` (nice -20) run concurrently; `top` shows the I/O‑bound task receiving ~60% CPU despite being less compute‑intensive.*
 
 ### 8. Clean teardown
+<img width="1322" height="213" alt="8" src="https://github.com/user-attachments/assets/435f3f61-2dcb-47a0-b43d-35fa166732cb" />
 
  
 *Caption: After stopping the supervisor, `ps aux | grep defunct` shows no zombies, and `sudo rmmod monitor` succeeds with no errors.*
